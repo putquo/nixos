@@ -1,0 +1,15 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "automergeStrategy": "squash",
+  "baseBranches": ["main"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "extends": ["schedule:monthly"]
+  },
+  "nix": {
+    "enabled": true
+  },
+  "prHourlyLimit": 2,
+  "rebaseWhen": "conflicted"
+}
