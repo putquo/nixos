@@ -21,9 +21,13 @@
 
   outputs = { self, nixpkgs, ... }@inputs: let
     talos.nixos = import ./hosts/talos { inherit inputs; };
-    talos.home = talos.nixos.config.home-manager;
+    talos.users = talos.nixos.config.home-manager.users;
+    talos.justin = talos.users.justin.home;
+    talos.formelio = talos.users.formelio.home;
   in {
     nixosConfigurations.talos = talos.nixos;
-    homeConfigurations.talos = talos.home;
+
+    homeConfigurations."justin@talos" = talos.justin;
+    homeConfigurations."formelio@talos" = talos.formelio;
   };
 }
