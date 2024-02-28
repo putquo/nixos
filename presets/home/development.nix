@@ -15,6 +15,7 @@
       ];
 
       direnv.enable = true;
+      direnv.nix-direnv.enable = true;
 
       eza.enable = true;
       eza.enableAliases = true;
