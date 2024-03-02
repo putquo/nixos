@@ -41,8 +41,6 @@
         programs = {
           direnv.config.whitelist.prefix = [ "/home/formelio/projects" ];
           git.extraConfig.user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBRTP702lUz73eZnq5TZXdkb2AkNvJbNuHLBXt42kv66";
-          git.userEmail = "jan.justin.vtonder@gmail.com";
-
           k9s.enable = true;
         };
 

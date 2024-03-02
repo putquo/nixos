@@ -28,6 +28,7 @@
         init.defaultBranch = "main";
         pull.rebase = true;
       };
+      git.userEmail = lib.mkDefault "jan.justin.vtonder@gmail.com";
       git.userName = "Jan-Justin van Tonder";
       
       helix.enable = true;
