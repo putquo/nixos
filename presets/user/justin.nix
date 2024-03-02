@@ -31,6 +31,10 @@
       };
     };
 
+    programs = {
+        _1password-gui.polkitPolicyOwners = [ "justin" ];
+    };
+
     users.users.justin = {
       extraGroups = [ "networkmanager" "wheel" ];
       initialPassword = "initPass";

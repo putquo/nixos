@@ -52,6 +52,10 @@
       };
     };
 
+    programs = {
+        _1password-gui.polkitPolicyOwners = [ "formelio" ];
+    };
+
     users.users.formelio = {
       extraGroups = [ "networkmanager" "wheel" ];
       initialPassword = "initPass";
