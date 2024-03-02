@@ -50,6 +50,5 @@
     };
 
     time.timeZone = "Europe/Amsterdam";
-    users.mutableUsers = false;
   };
 }
