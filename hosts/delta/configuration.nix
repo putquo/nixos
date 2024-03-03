@@ -3,7 +3,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 8;
 
-  networking.hostName = "talos";
+  networking.hostName = "delta";
   networking.networkmanager.enable = true;
   networking.useDHCP = lib.mkDefault true;
 

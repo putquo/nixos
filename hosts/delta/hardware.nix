@@ -11,7 +11,7 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/afe83042-6519-430d-908c-dd2afe7fa464";
     fsType = "ext4";
-    label = "talos";
+    label = "able";
   };
 
   fileSystems."/boot" = {
@@ -20,16 +20,16 @@
     label = "boot";
   };
 
-  fileSystems."/mnt/argo" = {
+  fileSystems."/mnt/baker" = {
     device = "/dev/disk/by-uuid/62122048-de14-403f-8640-fd2572ca8ec2";
     fsType = "ext4";
-    label = "argo";
+    label = "baker";
   };
  
-  fileSystems."/mnt/ichor" = {
+  fileSystems."/mnt/easy" = {
     device = "/dev/disk/by-uuid/260a30f2-04f0-4b55-8fc4-4fcd966796d2";
     fsType = "ext4";
-    label = "ichor";
+    label = "easy";
   };
 
   hardware.bluetooth.enable = true;

@@ -20,14 +20,14 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs: let
-    talos.nixos = import ./hosts/talos { inherit inputs; };
-    talos.users = talos.nixos.config.home-manager.users;
-    talos.justin = talos.users.justin.home;
-    talos.formelio = talos.users.formelio.home;
+    delta.nixos = import ./hosts/delta { inherit inputs; };
+    delta.users = delta.nixos.config.home-manager.users;
+    delta.justin = delta.users.justin.home;
+    delta.work = delta.users.work.home;
   in {
-    nixosConfigurations.talos = talos.nixos;
+    nixosConfigurations.delta = delta.nixos;
 
-    homeConfigurations."justin@talos" = talos.justin;
-    homeConfigurations."formelio@talos" = talos.formelio;
+    homeConfigurations."justin@delta" = delta.justin;
+    homeConfigurations."work@delta" = delta.formelio;
   };
 }
