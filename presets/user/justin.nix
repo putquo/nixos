@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, stencils, ... }: {
   options = {
     presets.user.justin.enable = lib.mkEnableOption {
       default = false;
@@ -6,39 +6,16 @@
     };
   };
 
-  config = lib.mkIf config.presets.user.justin.enable {
-    home-manager = {
-      users.justin = {
-        imports = [
-          ../home
-        ];
-
-        home = {
-          inherit (config.system) stateVersion;  
-          username = "justin";
-          homeDirectory = "/home/justin";
-        };
-
-        presets.home.base.enable = true;
-        presets.home.development.enable = true;
-        presets.home.gaming.enable = true;
-
-        programs = {
-          direnv.config.whitelist.prefix = [ "/home/justin/projects" ];
-          git.extraConfig.user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFCIGXttA+0HUZtaya0T2klbNSrxonbJ8BEmi4L8+/MM";
+  config = lib.mkIf config.presets.user.justin.enable (
+    stencils.user "justin" {
+      inherit config;
+      extraConfig = {
+        home-manager.users.justin = {
+          presets.home.development.enable = true;
+          presets.home.gaming.enable = true;
         };
       };
-    };
-
-    programs = {
-        _1password-gui.polkitPolicyOwners = [ "justin" ];
-    };
-
-    users.users.justin = {
-      extraGroups = [ "networkmanager" "wheel" ];
-      initialPassword = "initPass";
-      isNormalUser = true;
-      shell = pkgs.fish;
-    };
-  };
+      signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFCIGXttA+0HUZtaya0T2klbNSrxonbJ8BEmi4L8+/MM";
+    }
+  );
 }

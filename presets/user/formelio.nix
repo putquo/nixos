@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, stencils, ... }: {
   options = {
     presets.user.formelio.enable = lib.mkEnableOption {
       default = false;
@@ -6,19 +6,12 @@
     };
   };
 
-  config = lib.mkIf config.presets.user.formelio.enable {
-    home-manager = {
-      users.formelio = {
-        imports = [
-          ../home
-        ];
-        
-        home = {
-          inherit (config.system) stateVersion;  
-          username = "formelio";
-          homeDirectory = "/home/formelio";
-
-          packages = with pkgs; [
+  config = lib.mkIf config.presets.user.formelio.enable (
+    stencils.user "formelio" {
+      inherit config;
+      extraConfig = {
+        home-manager.users.formelio = {
+          home.packages = with pkgs; [
             google-cloud-sdk
             k6
             kubectl
@@ -33,32 +26,19 @@
             yarn
             yaml-language-server
           ];
+
+          presets.home.development.enable = true;
+
+          programs = {
+            k9s.enable = true;
+          };
+
+          xdg.desktopEntries.steam.exec = "";
+          xdg.desktopEntries.steam.name = "Steam";
+          xdg.desktopEntries.steam.noDisplay = true;
         };
-
-        presets.home.base.enable = true;
-        presets.home.development.enable = true;
-
-        programs = {
-          direnv.config.whitelist.prefix = [ "/home/formelio/projects" ];
-          git.extraConfig.user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBRTP702lUz73eZnq5TZXdkb2AkNvJbNuHLBXt42kv66";
-          k9s.enable = true;
-        };
-
-        xdg.desktopEntries.steam.exec = "";
-        xdg.desktopEntries.steam.name = "Steam";
-        xdg.desktopEntries.steam.noDisplay = true;
       };
-    };
-
-    programs = {
-        _1password-gui.polkitPolicyOwners = [ "formelio" ];
-    };
-
-    users.users.formelio = {
-      extraGroups = [ "networkmanager" "wheel" ];
-      initialPassword = "initPass";
-      isNormalUser = true;
-      shell = pkgs.fish;
-    };
-  };
+      signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBRTP702lUz73eZnq5TZXdkb2AkNvJbNuHLBXt42kv66";
+    }
+  ); 
 }

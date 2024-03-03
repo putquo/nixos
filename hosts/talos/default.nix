@@ -1,11 +1,21 @@
 { inputs, }: let
-  inherit (inputs.nixpkgs) lib;
+  inherit (inputs) nixpkgs;
+  inherit (nixpkgs) lib;
+
+  system = "x86_64-linux";
+  pkgs = import nixpkgs { inherit system; };
+
   configuration = ./configuration.nix;
   hardware = ./hardware.nix;
-  home-manager = inputs.home-manager.nixosModules.home-manager;
   presets = ../../presets;
+
+  home-manager = inputs.home-manager.nixosModules.home-manager;
+
+  specialArgs.stencils = import ../../stencils { inherit pkgs; };
 in lib.nixosSystem {
-  system = "x86_64-linux";
+  inherit specialArgs;
+  inherit system;
+
   modules = [ 
     configuration
     hardware
