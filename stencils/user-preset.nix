@@ -18,6 +18,11 @@ in {
             ];
 
             presets.home.base.enable = true;
+
+            xdg.configFile."1Password/ssh/agent.toml".text = ''
+              [[ssh_keys]]
+              vault = "${tag}"
+            '';
           };
         };
 
