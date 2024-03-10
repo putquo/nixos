@@ -1,3 +1,3 @@
-{ pkgs, ... }: {
-  user = import ./user.nix { inherit pkgs; };
+{ pkgs }: {
+  module.preset.user = import ./user-preset.nix { inherit pkgs; };
 }
