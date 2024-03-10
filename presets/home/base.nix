@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, osConfig, pkgs, ... }: {
   options = {
     presets.home.base.enable = lib.mkEnableOption {
       default = false;
@@ -7,6 +7,8 @@
   };
 
   config = lib.mkIf config.presets.home.base.enable {
+    home.stateVersion = osConfig.system.stateVersion;
+    
     programs = {
       firefox.enable = true;
       fish.enable = true;
@@ -25,9 +27,6 @@
         publicShare = "$HOME/public";
         videos = "$HOME/media/videos";
         templates = "$HOME/templates";
-        extraConfig = { 
-          XDG_PROJECTS_DIR = "$HOME/projects";
-        };
       };
     };
   };

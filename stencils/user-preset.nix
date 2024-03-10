@@ -17,16 +17,7 @@ in {
               ../presets/home
             ];
 
-            home = {
-              inherit username homeDirectory;
-              inherit (config.system) stateVersion;
-            };
-
             presets.home.base.enable = true;
-
-            programs = {
-              direnv.config.whitelist.prefix = [ "${homeDirectory}/projects" ];
-            };
           };
         };
 

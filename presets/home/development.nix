@@ -16,6 +16,7 @@
 
       direnv.enable = true;
       direnv.nix-direnv.enable = true;
+      direnv.config.whitelist.prefix = [ "${config.home.homeDirectory}/projects" ];
 
       eza.enable = true;
       eza.enableAliases = true;
@@ -44,5 +45,7 @@
       wezterm.enable = true;
       zoxide.enable = true;
     }; 
+
+    xdg.userDirs.extraConfig.XDG_PROJECTS_DIR = "$HOME/projects";
   };
 }
