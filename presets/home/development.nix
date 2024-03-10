@@ -42,7 +42,9 @@
       '';
 
       starship.enable = true;
+
       zoxide.enable = true;
+      zoxide.options = [ "--cmd" "cd" ];
     }; 
 
     xdg.userDirs.extraConfig.XDG_PROJECTS_DIR = "$HOME/projects";
