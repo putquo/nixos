@@ -2,7 +2,7 @@
   username = "justin";
   tag = "Personal";
 in stencils.module.preset.user username {
-  inherit config tag;
+  inherit config lib pkgs tag;
   withOverrides = {
     home-manager.users.${username} = {
       presets.home.development.enable = true;

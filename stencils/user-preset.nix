@@ -1,5 +1,4 @@
-{ pkgs }: username: { config, withOverrides, tag }: let
-  inherit (pkgs) lib;
+username: { config, lib, pkgs, withOverrides, tag }: let
   homeDirectory = "/home/${username}";
 in {
   options = {

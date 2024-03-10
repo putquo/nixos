@@ -20,14 +20,11 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs: let
-    delta.nixos = import ./hosts/delta { inherit inputs; };
-    delta.users = delta.nixos.config.home-manager.users;
-    delta.justin = delta.users.justin.home;
-    delta.work = delta.users.work.home;
+    delta = nixosSystem "delta";
+    nixosSystem = (import ./stencils).system.nixos inputs;
   in {
     nixosConfigurations.delta = delta.nixos;
-
     homeConfigurations."justin@delta" = delta.justin;
-    homeConfigurations."work@delta" = delta.formelio;
+    homeConfigurations."formelio@delta" = delta.formelio;
   };
 }
