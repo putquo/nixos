@@ -42,7 +42,6 @@
       '';
 
       starship.enable = true;
-      wezterm.enable = true;
       zoxide.enable = true;
     }; 
 
