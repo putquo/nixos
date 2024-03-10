@@ -8,10 +8,16 @@
 
   config = lib.mkIf config.presets.home.base.enable {
     home.stateVersion = osConfig.system.stateVersion;
-    
+
     programs = {
       firefox.enable = true;
+
       fish.enable = true;
+      fish.interactiveShellInit = ''
+        set fish_greeting
+        fish_vi_key_bindings
+      '';
+
       home-manager.enable = true;
     };
 
