@@ -13,11 +13,10 @@
         home-manager.users.formelio = {
           home.packages = with pkgs; [
             google-cloud-sdk
+            jetbrains.idea-community-bin
             k6
             kubectl
             kubelogin-oidc
-            kubernetes-helm
-            kubernetes-helmPlugins.helm-secrets
             maven
             mongosh
             openvpn
@@ -25,12 +24,20 @@
             sops
             yarn
             yaml-language-server
+
+            (wrapHelm kubernetes-helm {
+              plugins = [
+                kubernetes-helmPlugins.helm-secrets
+              ];
+            })
           ];
 
           presets.home.development.enable = true;
 
           programs = {
             k9s.enable = true;
+            java.enable = true;
+            java.package = pkgs.jdk17;
           };
 
           xdg.desktopEntries.steam.exec = "";
