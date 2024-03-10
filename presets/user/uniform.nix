@@ -1,5 +1,5 @@
 { config, lib, pkgs, stencils, ... }: let 
-  username = "formelio";
+  username = "uniform";
   tag = "Formelio";
 in stencils.module.preset.user username {
   inherit config lib pkgs tag;

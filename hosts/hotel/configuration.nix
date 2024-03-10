@@ -3,7 +3,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 8;
 
-  networking.hostName = "delta";
   networking.networkmanager.enable = true;
   networking.useDHCP = lib.mkDefault true;
 
@@ -15,8 +14,8 @@
   presets.system.gaming.enable = true;
   presets.system.kde.enable = true;
   presets.system.nvidia.enable = true;
-  presets.user.formelio.enable = true;
   presets.user.justin.enable = true;
+  presets.user.uniform.enable = true;
 
   security.rtkit.enable = true;
 

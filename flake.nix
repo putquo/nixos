@@ -20,11 +20,10 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs: let
-    delta = nixosSystem "delta";
+    hotel = nixosSystem "hotel";
     nixosSystem = (import ./stencils).system.nixos inputs;
   in {
-    nixosConfigurations.delta = delta.nixos;
-    homeConfigurations."justin@delta" = delta.justin;
-    homeConfigurations."formelio@delta" = delta.formelio;
+    homeConfigurations = {} // hotel.homeConfigurations;
+    nixosConfigurations.hotel = hotel.nixosConfiguration;
   };
 }
