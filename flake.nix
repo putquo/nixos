@@ -21,9 +21,11 @@
 
   outputs = { self, nixpkgs, ... }@inputs: let
     hotel = nixosSystem "hotel";
+    whiskey = nixosSystem "whiskey";
     nixosSystem = (import ./stencils).system.nixos inputs;
   in {
-    homeConfigurations = {} // hotel.homeConfigurations;
+    homeConfigurations = {} // hotel.homeConfigurations // whiskey.homeConfigurations;
     nixosConfigurations.hotel = hotel.nixosConfiguration;
+    nixosConfigurations.whiskey = whiskey.nixosConfiguration;
   };
 }
