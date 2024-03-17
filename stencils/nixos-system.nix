@@ -1,15 +1,22 @@
-flake: hostname: let
+{ inputs, stencils }: { hostname, system }: let
+  inherit (inputs.nixpkgs) lib;
   host = import ../hosts/${hostname};
-  homeManager = flake.home-manager.nixosModules.home-manager;
+  homeManager = inputs.home-manager.nixosModules.home-manager;
   presets = ../presets;
-  specialArgs.stencils = import ./.;
+  specialArgs.stencils = stencils;
 in rec {
-  homeConfigurations = with flake.nixpkgs.lib; mapAttrs' 
+  # TODO: Fix or remove
+  homeConfigurations = with lib; mapAttrs' 
     (user: config: nameValuePair ("${user}@${hostname}") (config.home))
     nixosConfiguration.config.home-manager.users; 
-  nixosConfiguration = flake.nixpkgs.lib.nixosSystem {
-    inherit (host) system;
-    inherit specialArgs;
-    modules = host.modules ++ [ { networking.hostName = hostname; } homeManager presets ];
+
+  nixosConfiguration = lib.nixosSystem {
+    inherit specialArgs system;
+    modules = [
+      { networking.hostName = hostname; }
+      homeManager
+      host
+      presets
+    ];
   };
 }

@@ -19,13 +19,15 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: let
-    hotel = nixosSystem "hotel";
-    whiskey = nixosSystem "whiskey";
-    nixosSystem = (import ./stencils).system.nixos inputs;
+  outputs = inputs: let
+    nixosHosts = stencils.nixos.hosts {
+      hotel = { system = "x86_64-linux"; };
+      whiskey = { system = "x86_64-linux"; };
+    };
+    stencils = import ./stencils inputs;
   in {
-    homeConfigurations = {} // hotel.homeConfigurations // whiskey.homeConfigurations;
-    nixosConfigurations.hotel = hotel.nixosConfiguration;
-    nixosConfigurations.whiskey = whiskey.nixosConfiguration;
+    inherit (nixosHosts)
+      homeConfigurations
+      nixosConfigurations;
   };
 }
