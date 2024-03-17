@@ -46,16 +46,11 @@
   presets.system.gaming.enable = true;
   presets.system.kde.enable = true;
   presets.system.nvidia.enable = true;
+  presets.system.wayland.enable = true;
   presets.user.justin.enable = true;
   presets.user.uniform.enable = true;
 
-  security.rtkit.enable = true;
-
   services.fstrim.enable = true;
-  services.pipewire.enable = true;
-  services.pipewire.alsa.enable = true;
-  services.pipewire.alsa.support32Bit = true;
-  services.pipewire.pulse.enable = true;
 
   sound.enable = true;
   swapDevices = [ ];

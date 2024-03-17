@@ -36,6 +36,7 @@
   
   presets.system.base.enable = true;
   presets.system.kde.enable = true;
+  presets.system.wayland.enable = true;
   presets.user.uniform.enable = true;
   
   services.fprintd.enable = true;
