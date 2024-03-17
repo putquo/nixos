@@ -19,7 +19,6 @@
       direnv.config.whitelist.prefix = [ "${config.home.homeDirectory}/projects" ];
 
       eza.enable = true;
-      eza.enableAliases = true;
 
       git.enable = true;
       git.extraConfig = {
