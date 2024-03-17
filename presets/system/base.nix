@@ -20,7 +20,7 @@
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ "Monaspace" ]; })
     ];
 
     home-manager.useGlobalPkgs = true;
