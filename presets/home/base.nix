@@ -18,6 +18,8 @@
         fish_vi_key_bindings
       '';
 
+      foot.enable = true;
+
       home-manager.enable = true;
     };
 
