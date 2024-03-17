@@ -19,6 +19,13 @@
       '';
 
       foot.enable = true;
+      foot.settings = {
+        main = {
+          font = "MonaspiceNe Nerd Font Mono:size=11";
+          initial-window-size-pixels = "1200x700";
+          pad = "8x4";
+        };        
+      };
 
       home-manager.enable = true;
     };
