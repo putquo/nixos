@@ -9,7 +9,10 @@
 
     programs.direnv.enable = true;
     programs.direnv.nix-direnv.enable = true;
-    programs.direnv.config.whitelist.prefix = [ "${config.home.homeDirectory}/projects" ];
+    programs.direnv.config.whitelist.prefix = [ 
+      config.xdg.configHome
+      "${config.home.homeDirectory}/projects"
+    ];
 
     programs.eza.enable = true;
 
