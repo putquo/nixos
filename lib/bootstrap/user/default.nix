@@ -8,6 +8,7 @@
           users.${username} = {
             inherit tag;
             presets.desktop.enable = config.presets.desktop.enable;
+            presets.kde.enable = config.presets.kde.enable;
           };
         };
 

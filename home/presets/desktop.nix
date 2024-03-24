@@ -4,6 +4,15 @@
     home.stateVersion = osConfig.system.stateVersion;
 
     programs.firefox.enable = true;
+    programs.firefox.profiles.default = {
+      id = 0;
+      name = "default";
+      isDefault = true;
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        onepassword-password-manager
+        ublock-origin
+      ];
+    };
 
     programs.fish.enable = true;
     programs.fish.interactiveShellInit = ''

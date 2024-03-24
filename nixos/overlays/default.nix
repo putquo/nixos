@@ -9,4 +9,5 @@
       '';
     });
   };
-in [ _1passAgentStart ]
+  nur = inputs.nur.overlay;
+in [ _1passAgentStart nur ]
