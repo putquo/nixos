@@ -7,6 +7,7 @@
   specialArgs.lib' = lib';
   users = import "${flake}/users";
   _additions.networking = { inherit hostName; };
+  _additions.nixpkgs.overlays = import "${flake}/nixos/overlays" { inherit inputs; };
   _additions.home-manager.extraSpecialArgs = { inherit lib'; };
   _additions.home-manager.sharedModules = [ (import "${flake}/home") ];
   _additions.home-manager.useGlobalPkgs = true;
