@@ -35,24 +35,15 @@
   hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.enable = false;
 
-  networking.networkmanager.enable = true;
-  networking.useDHCP = lib.mkDefault true;
+  presets.desktop.enable = true;
+  presets.gaming.enable = true;
+  presets.kde.enable = true;
+  presets.nvidia.enable = true;
+  presets.wayland.enable = true;
 
-  nix.gc.automatic = true;
-  nix.gc.options = "--delete-older-than 7d";
-  nix.settings.auto-optimise-store = true;
-
-  presets.system.base.enable = true;
-  presets.system.gaming.enable = true;
-  presets.system.kde.enable = true;
-  presets.system.nvidia.enable = true;
-  presets.system.wayland.enable = true;
-  presets.user.justin.enable = true;
-  presets.user.uniform.enable = true;
-
-  services.fstrim.enable = true;
-
-  sound.enable = true;
   swapDevices = [ ];
   system.stateVersion = "23.11";
+
+  users.justin.enable = true;
+  users.uniform.enable = true;
 }

@@ -1,12 +1,6 @@
-{ config, lib, pkgs, ... }: {
-  options = {
-    presets.system.wayland.enable = lib.mkEnableOption {
-      default = false;
-      description = "Enable wayland system preset";
-    };
-  };
-
-  config = lib.mkIf config.presets.system.wayland.enable {
+{ config, lib, lib', pkgs, ... }: with lib'; templated.preset "wayland" {
+  inherit config;
+  whenEnabled = {
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
     security.rtkit.enable = true;
     services.pipewire.enable = true;

@@ -20,14 +20,10 @@
   };
 
   outputs = inputs: let
-    nixosHosts = stencils.nixos.hosts {
-      hotel = { system = "x86_64-linux"; };
-      whiskey = { system = "x86_64-linux"; };
-    };
-    stencils = import ./stencils inputs;
+    lib' = import ./lib { inherit inputs; };
+    nixosOutputs = import ./nixos { inherit inputs lib'; };
   in {
-    inherit (nixosHosts)
-      homeConfigurations
-      nixosConfigurations;
+    # dbg = nixosOutputs;
+    inherit (nixosOutputs) nixosConfigurations;
   };
 }

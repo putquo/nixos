@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ./base.nix
+    ./desktop.nix
     ./gaming.nix
     ./kde.nix
     ./nvidia.nix

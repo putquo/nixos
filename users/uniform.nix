@@ -1,10 +1,8 @@
-{ config, lib, pkgs, stencils, ... }: let 
-  username = "uniform";
+{ config, lib, lib', pkgs, ... }: with lib'; bootstrap.user "uniform" {
+  inherit config lib pkgs;
   tag = "Formelio";
-in stencils.module.preset.user username {
-  inherit config lib pkgs tag;
   withOverrides = {
-    home-manager.users.${username} = {
+    home-manager.users.uniform = {
       home.packages = with pkgs; [
         google-cloud-sdk
         jetbrains.idea-community-bin
@@ -26,20 +24,13 @@ in stencils.module.preset.user username {
         })
       ];
 
-      presets.home.development.enable = true;
+      presets.development.enable = true;
 
-      programs = {
-        k9s.enable = true;
-        java.enable = true;
-        java.package = pkgs.jdk17;
-        git.extraConfig.user.signingKey =
+      programs.k9s.enable = true;
+      programs.java.enable = true;
+      programs.java.package = pkgs.jdk17;
+      programs.git.extraConfig.user.signingKey =
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBRTP702lUz73eZnq5TZXdkb2AkNvJbNuHLBXt42kv66";
-      };
-
-
-      xdg.desktopEntries.steam.exec = "";
-      xdg.desktopEntries.steam.name = "Steam";
-      xdg.desktopEntries.steam.noDisplay = true;
     };
   };
 }

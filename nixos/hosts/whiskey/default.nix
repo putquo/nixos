@@ -26,25 +26,17 @@
   hardware.bluetooth.enable = true;
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true;
-
-  networking.networkmanager.enable = true;
-  networking.useDHCP = lib.mkDefault true;
   
-  nix.gc.automatic = true;
-  nix.gc.options = "--delete-older-than 7d";
-  nix.settings.auto-optimise-store = true;
-  
-  presets.system.base.enable = true;
-  presets.system.kde.enable = true;
-  presets.system.wayland.enable = true;
-  presets.user.uniform.enable = true;
+  presets.desktop.enable = true;
+  presets.kde.enable = true;
+  presets.wayland.enable = true;
   
   services.fprintd.enable = true;
   services.fprintd.tod.enable = true;
   services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090;
-  services.fstrim.enable = true;
 
-  sound.enable = true;
   swapDevices = [ ];
   system.stateVersion = "23.11";
+
+  users.uniform.enable = true;
 }
