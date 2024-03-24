@@ -10,4 +10,7 @@
     });
   };
   nur = inputs.nur.overlay;
-in [ _1passAgentStart nur ]
+  vault = self: super: {
+    vault = inputs.nixpkgs-stable.legacyPackages.${super.system}.vault;
+  };
+in [ _1passAgentStart nur vault ]

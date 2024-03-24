@@ -17,6 +17,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
     nur.url = "github:nix-community/nur";
   };
 
@@ -24,7 +25,6 @@
     lib' = import ./lib { inherit inputs; };
     nixosOutputs = import ./nixos { inherit inputs lib'; };
   in {
-    # dbg = nixosOutputs;
     inherit (nixosOutputs) nixosConfigurations;
   };
 }
