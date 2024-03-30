@@ -1,4 +1,4 @@
-{ config, lib, lib', pkgs, ... }: with lib'; bootstrap.user "justin" {
+{ config, lib, lib', pkgs, ... }: with lib'; templated.user "justin" {
   inherit config lib pkgs;
   tag = "Personal";
   withOverrides = {

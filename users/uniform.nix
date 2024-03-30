@@ -1,4 +1,4 @@
-{ config, lib, lib', pkgs, ... }: with lib'; bootstrap.user "uniform" {
+{ config, lib, lib', pkgs, ... }: with lib'; templated.user "uniform" {
   inherit config lib pkgs;
   tag = "Formelio";
   withOverrides = {
