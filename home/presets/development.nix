@@ -1,18 +1,15 @@
-{ config, lib, lib', pkgs, ... }: with lib'; templated.preset "development" {
+{ config, lib, lib', pkgs, ... }:
+with lib';
+templated.preset "development" {
   inherit config;
   whenEnabled = {
     programs.bat.enable = true;
-    programs.bat.extraPackages = with pkgs.bat-extras; [
-      batdiff
-      batman
-    ];
+    programs.bat.extraPackages = with pkgs.bat-extras; [ batdiff batman ];
 
     programs.direnv.enable = true;
     programs.direnv.nix-direnv.enable = true;
-    programs.direnv.config.whitelist.prefix = [ 
-      config.xdg.configHome
-      "${config.home.homeDirectory}/projects"
-    ];
+    programs.direnv.config.whitelist.prefix =
+      [ config.xdg.configHome "${config.home.homeDirectory}/projects" ];
 
     programs.eza.enable = true;
 
@@ -26,9 +23,32 @@
     };
     programs.git.userEmail = lib.mkDefault "jan.justin.vtonder@gmail.com";
     programs.git.userName = "Jan-Justin van Tonder";
-    
+
     programs.helix.enable = true;
     programs.helix.defaultEditor = true;
+    programs.helix.settings = {
+      theme = "rpine";
+      editor = {
+        color-modes = true;
+        completion-trigger-len = 1;
+        cursorline = true;
+        line-number = "relative";
+        true-color = true;
+        undercurl = true;
+      };
+      editor.cursor-shape = {
+        insert = "bar";
+        normal = "block";
+        select = "underline";
+      };
+      editor.lsp = {
+        display-inlay-hints = true;
+        display-messages = true;
+      };
+      keys.normal = { X = "extend_line_above"; };
+      keys.select = { X = "extend_line_above"; };
+    };
+    programs.helix.themes = { empty = { }; };
 
     programs.ssh.enable = true;
     programs.ssh.extraConfig = ''
