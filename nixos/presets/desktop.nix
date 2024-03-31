@@ -6,6 +6,7 @@
       fzf
       just
       ripgrep
+      theme-sh
       vim
       wget
     ];
