@@ -5,7 +5,7 @@
       packages = [
         deadnix
         nil
-        nixfmt
+        nixpkgs-fmt
         statix
       ];
     };

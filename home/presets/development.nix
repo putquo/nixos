@@ -1,6 +1,4 @@
-{ config, lib, lib', pkgs, ... }:
-with lib';
-templated.preset "development" {
+{ config, lib, lib', pkgs, ... }: with lib'; templated.preset "development" {
   inherit config;
   whenEnabled = {
     programs.bat.enable = true;
@@ -26,6 +24,13 @@ templated.preset "development" {
 
     programs.helix.enable = true;
     programs.helix.defaultEditor = true;
+    programs.helix.languages.language = [
+      {
+        name = "nix";
+        auto-format = true;
+        formatter.command = "nixpkgs-fmt";
+      }
+    ];
     programs.helix.settings = {
       theme = "rpine";
       editor = {
@@ -61,19 +66,21 @@ templated.preset "development" {
     programs.zoxide.enable = true;
     programs.zoxide.options = [ "--cmd" "cd" ];
 
-    services.darkman = let
-      hxRtThemesDir = "${pkgs.helix}/lib/runtime/themes";
-      hxTheme = "${config.xdg.configHome}/helix/themes/rpine.toml";
-    in {
-      darkModeScripts.helix = ''
-        /usr/bin/env -S ln -sf "${hxRtThemesDir}/rose_pine_moon.toml" "${hxTheme}"
-        /usr/bin/env -S pkill -USR1 hx
-      '';
-      lightModeScripts.helix = ''
-        /usr/bin/env -S ln -sf "${hxRtThemesDir}/rose_pine_dawn.toml" "${hxTheme}"
-        /usr/bin/env -S pkill -USR1 hx
-      '';
-    };
+    services.darkman =
+      let
+        hxRtThemesDir = "${pkgs.helix}/lib/runtime/themes";
+        hxTheme = "${config.xdg.configHome}/helix/themes/rpine.toml";
+      in
+      {
+        darkModeScripts.helix = ''
+          /usr/bin/env -S ln -sf "${hxRtThemesDir}/rose_pine_moon.toml" "${hxTheme}"
+          /usr/bin/env -S pkill -USR1 hx
+        '';
+        lightModeScripts.helix = ''
+          /usr/bin/env -S ln -sf "${hxRtThemesDir}/rose_pine_dawn.toml" "${hxTheme}"
+          /usr/bin/env -S pkill -USR1 hx
+        '';
+      };
 
     xdg.userDirs.extraConfig.XDG_PROJECTS_DIR = "$HOME/projects";
   };
