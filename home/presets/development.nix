@@ -61,6 +61,20 @@ templated.preset "development" {
     programs.zoxide.enable = true;
     programs.zoxide.options = [ "--cmd" "cd" ];
 
+    services.darkman = let
+      hxRtThemesDir = "${pkgs.helix}/lib/runtime/themes";
+      hxTheme = "${config.xdg.configHome}/helix/themes/rpine.toml";
+    in {
+      darkModeScripts.helix = ''
+        /usr/bin/env -S ln -sf "${hxRtThemesDir}/rose_pine_moon.toml" "${hxTheme}"
+        /usr/bin/env -S pkill -USR1 hx
+      '';
+      lightModeScripts.helix = ''
+        /usr/bin/env -S ln -sf "${hxRtThemesDir}/rose_pine_dawn.toml" "${hxTheme}"
+        /usr/bin/env -S pkill -USR1 hx
+      '';
+    };
+
     xdg.userDirs.extraConfig.XDG_PROJECTS_DIR = "$HOME/projects";
   };
 }
