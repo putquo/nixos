@@ -4,7 +4,7 @@
   ];
 
   boot.extraModulePackages = [ ];
-  boot.initrd.availableKernelModules = [ 
+  boot.initrd.availableKernelModules = [
     "ahci"
     "nvme"
     "sd_mod"
@@ -26,7 +26,7 @@
   fileSystems."/mnt/baker".fsType = "ext4";
   fileSystems."/mnt/easy".device = "/dev/disk/by-label/easy";
   fileSystems."/mnt/easy".fsType = "ext4";
-  
+
   hardware.bluetooth.enable = true;
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true;
@@ -36,6 +36,7 @@
   hardware.pulseaudio.enable = false;
 
   presets.desktop.enable = true;
+  presets.development.enable = true;
   presets.gaming.enable = true;
   presets.kde.enable = true;
   presets.nvidia.enable = true;

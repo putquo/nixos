@@ -7,8 +7,9 @@
         home-manager = {
           users.${username} = {
             inherit tag;
-            presets.desktop.enable = config.presets.desktop.enable;
-            presets.kde.enable = config.presets.kde.enable;
+            presets.desktop.enable = lib.mkDefault config.presets.desktop.enable;
+            presets.development.enable = lib.mkDefault config.presets.desktop.enable;
+            presets.kde.enable = lib.mkDefault config.presets.kde.enable;
           };
         };
 

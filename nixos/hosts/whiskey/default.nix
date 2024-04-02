@@ -22,15 +22,16 @@
   fileSystems."/".fsType = "ext4";
   fileSystems."/boot".device = "/dev/disk/by-label/BOOT";
   fileSystems."/boot".fsType = "vfat";
-  
+
   hardware.bluetooth.enable = true;
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true;
-  
+
   presets.desktop.enable = true;
+  presets.development.enable = true;
   presets.kde.enable = true;
   presets.wayland.enable = true;
-  
+
   services.fprintd.enable = true;
   services.fprintd.tod.enable = true;
   services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
