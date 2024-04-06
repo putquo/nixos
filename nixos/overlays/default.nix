@@ -1,4 +1,5 @@
-{ inputs }: let
+{ inputs }:
+let
   custom = self: super: {
     _1password-gui = super._1password-gui.overrideAttrs (prev: {
       postInstall = (prev.postInstall or "") + ''
@@ -8,12 +9,15 @@
           --replace 'Exec=${prev.pname} %U' 'Exec=${prev.pname} --silent %U'
       '';
     });
+    helix = inputs.helix.packages.${super.system}.default;
     fprintd = super.fprintd.overrideAttrs (prev: {
       mesonCheckFlags = [
-        "--no-suite" "fprintd:TestPamFprintd"
+        "--no-suite"
+        "fprintd:TestPamFprintd"
       ];
     });
     vault = inputs.nixpkgs-stable.legacyPackages.${super.system}.vault;
   };
   nur = inputs.nur.overlay;
-in [ custom nur ]
+in
+[ custom nur ]
