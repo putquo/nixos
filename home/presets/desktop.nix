@@ -18,8 +18,11 @@ templated.preset "desktop" {
 
     programs.fish.enable = true;
     programs.fish.interactiveShellInit =
-      let theme-sh = "${pkgs.theme-sh}/bin/theme.sh";
-      in ''
+      let
+        darkman = "${pkgs.darkman}/bin/darkman";
+        theme-sh = "${pkgs.theme-sh}/bin/theme.sh";
+      in
+      ''
         set fish_greeting
         fish_vi_key_bindings
 
@@ -59,8 +62,11 @@ templated.preset "desktop" {
           ${theme-sh} rose-pine-dawn
         end
 
-        if test -e ~/.theme_history
-          ${theme-sh} (${theme-sh} -l | tail -n1)
+        switch (${darkman} get)
+        case "dark"
+          __set_dark_appearance
+        case "light"
+          __set_light_appearance
         end
       '';
 
@@ -99,7 +105,8 @@ templated.preset "desktop" {
       + ",es256,+presence";
 
     xdg.desktopEntries = lib.mkIf
-      (osConfig.presets.gaming.enable && !config.presets.gaming.enable) {
+      (osConfig.presets.gaming.enable && !config.presets.gaming.enable)
+      {
         steam.exec = "";
         steam.name = "Steam";
         steam.noDisplay = true;
