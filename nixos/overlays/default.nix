@@ -17,6 +17,7 @@ let
       ];
     });
     vault = inputs.nixpkgs-stable.legacyPackages.${super.system}.vault;
+    yazi = inputs.yazi.packages.${super.system}.default;
   };
   nur = inputs.nur.overlay;
 in

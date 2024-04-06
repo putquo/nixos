@@ -63,6 +63,8 @@
 
     programs.starship.enable = true;
 
+    programs.yazi.enable = true;
+
     programs.zoxide.enable = true;
     programs.zoxide.options = [ "--cmd" "cd" ];
 

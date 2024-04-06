@@ -3,12 +3,9 @@
   whenEnabled = {
     environment.systemPackages = with pkgs; [
       curl
-      fzf
-      just
-      ripgrep
-      theme-sh
       vim
       wget
+      wl-clipboard
     ];
 
     fonts.packages = with pkgs; [
