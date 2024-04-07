@@ -2,6 +2,7 @@
   inherit config;
   whenEnabled = {
     environment.systemPackages = with pkgs; [
+      difftastic
       fd
       fzf
       just

@@ -12,6 +12,7 @@
     programs.eza.enable = true;
 
     programs.git.enable = true;
+    programs.git.difftastic.enable = true;
     programs.git.extraConfig = {
       commit.gpgsign = true;
       gpg.format = "ssh";
