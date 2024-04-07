@@ -71,7 +71,12 @@
 
     services.darkman =
       let
-        hxRtThemesDir = "${pkgs.helix}/lib/runtime/themes";
+        hxRtDir = lib.last (
+          builtins.match
+            ".*(/nix/store/.*-helix-runtime).*"
+            pkgs.helix.buildCommand
+        );
+        hxRtThemesDir = "${hxRtDir}/themes";
         hxTheme = "${config.xdg.configHome}/helix/themes/rpine.toml";
       in
       {
