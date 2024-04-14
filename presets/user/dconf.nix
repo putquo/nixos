@@ -6,6 +6,7 @@
   config = mkIf config.presets.user.dconf.enable {
     home.packages = with pkgs; [
       bibata-cursors
+      orchis-theme
       tela-icon-theme
     ];
 
@@ -14,6 +15,7 @@
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
         cursor-theme = "Bibata-Modern-Classic";
+        gtk-theme = "Orchis";
         icon-theme = "Tela";
       };
     };

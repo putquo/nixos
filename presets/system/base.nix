@@ -23,7 +23,6 @@ in {
       nodejs_latest
       protonvpn-gui
       ripgrep
-      tailscale
       tree
       unzip
       vim
