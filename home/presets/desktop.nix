@@ -76,6 +76,7 @@ templated.preset "desktop" {
         font = "MonaspiceNe Nerd Font Mono:size=11";
         initial-window-size-pixels = "1200x700";
         pad = "8x4";
+        term = "xterm-256color";
       };
     };
 
