@@ -21,6 +21,7 @@ in {
 
   config = mkIf config.presets.system.default.enable {
     environment.systemPackages = with pkgs; [
+      bind
       curl
       fzf
       git
