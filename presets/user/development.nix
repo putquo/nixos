@@ -14,7 +14,8 @@ in {
       ];
 
       direnv.enable = true;
-      direnv.config.whitelist.prefix = [ "${config.home.homeDirectory}/workspace" ];
+      direnv.config.whitelist.prefix = [ "${config.home.homeDirectory}/workspace" "${config.xdg.configHome}/nixconf" ];
+      direnv.config.hide_env_diff = true;
       direnv.nix-direnv.enable = true;
 
       fish.shellAliases = {
