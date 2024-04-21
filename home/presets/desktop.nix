@@ -5,7 +5,10 @@ templated.preset "desktop" {
   whenEnabled = {
     home.stateVersion = osConfig.system.stateVersion;
 
+    programs.btop.enable = true;
+
     programs.firefox.enable = true;
+    programs.firefox.package = pkgs.firefox-bin;
     programs.firefox.profiles.default = {
       id = 0;
       name = "default";

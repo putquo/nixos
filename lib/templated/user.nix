@@ -9,6 +9,7 @@
             inherit tag;
             presets.desktop.enable = lib.mkDefault config.presets.desktop.enable;
             presets.development.enable = lib.mkDefault config.presets.desktop.enable;
+            presets.hyprland.enable = lib.mkDefault config.presets.hyprland.enable;
             presets.kde.enable = lib.mkDefault config.presets.kde.enable;
           };
         };

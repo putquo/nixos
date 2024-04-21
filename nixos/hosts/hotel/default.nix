@@ -1,4 +1,4 @@
-{ config, lib, modulesPath, pkgs, ... }: {
+{ modulesPath, pkgs, ... }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -14,6 +14,7 @@
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 8;
@@ -29,6 +30,7 @@
 
   hardware.bluetooth.enable = true;
   hardware.cpu.intel.updateMicrocode = true;
+  hardware.enableAllFirmware = true;
   hardware.enableRedistributableFirmware = true;
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
@@ -38,7 +40,7 @@
   presets.desktop.enable = true;
   presets.development.enable = true;
   presets.gaming.enable = true;
-  presets.kde.enable = true;
+  presets.hyprland.enable = true;
   presets.nvidia.enable = true;
   presets.wayland.enable = true;
 

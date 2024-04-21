@@ -1,4 +1,5 @@
-{ inputs, lib' }: { hostName, system }: let
+{ inputs, lib' }: { hostName, system }:
+let
   inherit (inputs.nixpkgs) lib;
   flake = inputs.self;
   host = import "${flake}/nixos/hosts/${hostName}";
@@ -9,10 +10,14 @@
   _additions.networking = { inherit hostName; };
   _additions.nixpkgs.overlays = import "${flake}/nixos/overlays" { inherit inputs; };
   _additions.home-manager.extraSpecialArgs = { inherit lib'; };
-  _additions.home-manager.sharedModules = [ (import "${flake}/home") ];
+  _additions.home-manager.sharedModules = [
+    (import "${flake}/home")
+    inputs.anyrun.homeManagerModules.default
+  ];
   _additions.home-manager.useGlobalPkgs = true;
   _additions.home-manager.useUserPackages = true;
-in {
+in
+{
   nixosConfiguration = with lib; nixosSystem {
     inherit specialArgs system;
     modules = [ _additions homeManager host presets users ];

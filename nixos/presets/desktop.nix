@@ -6,7 +6,6 @@
       curl
       vim
       wget
-      wl-clipboard
     ];
 
     fonts.packages = with pkgs; [
