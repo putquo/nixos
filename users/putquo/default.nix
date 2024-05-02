@@ -17,6 +17,6 @@ in schematics.forUser putquo {
       };
     };
 
-    users.users.${putquo}.extraGroups = [ "media" ];
+    users.users.${putquo}.extraGroups = [ "libvirtd" ];
   };
 }

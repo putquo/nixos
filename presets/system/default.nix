@@ -2,6 +2,7 @@
   wsl = config.wsl.enable;
 in {
   imports = [
+    ./automation.nix
     ./gaming.nix
     ./gnome.nix
     ./i18n

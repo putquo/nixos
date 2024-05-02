@@ -1,4 +1,4 @@
-{
+{ lib, ... }: {
   imports = [ ./hardware.nix ];
 
   boot.loader.efi.canTouchEfiVariables = true;
@@ -8,7 +8,9 @@
   hardware.pulseaudio.enable = false;
 
   networking.hostName = "titan";
+  networking.interfaces.enp4s0.useDHCP = lib.mkDefault true;
   networking.networkmanager.enable = true;
+  networking.useDHCP = false;
   networking.wg-quick = {
     interfaces.nl13 = {
       autostart = false;
@@ -38,7 +40,6 @@
   services.pipewire.alsa.enable = true;
   services.pipewire.alsa.support32Bit = true;
   services.pipewire.pulse.enable = true;
-
   services.xserver.displayManager.gdm.wayland = true;
 
   sound.enable = true;
