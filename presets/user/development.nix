@@ -63,7 +63,7 @@ in {
         gst = "git status";
       };
 
-      foot.enable = true;
+      foot.enable = false;
       foot.settings = {
         csd = {
           "border-width" = 2;
@@ -117,8 +117,6 @@ in {
       };
 
       vim.enable = true;
-
-      wezterm.enable = mkIf (!wsl) true;
 
       zoxide.enable = true;
       zoxide.enableNushellIntegration = false;
