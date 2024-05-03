@@ -63,18 +63,6 @@ in {
         gst = "git status";
       };
 
-      foot.enable = false;
-      foot.settings = {
-        csd = {
-          "border-width" = 2;
-          "border-color" = "ff404040";
-        };
-        main = {
-          font = "CaskaydiaCove Nerd Font:size=11";
-          pad = "8x4";
-        };
-      };
-
       git.enable = true;
       git.extraConfig = {
         commit.gpgsign = true;
