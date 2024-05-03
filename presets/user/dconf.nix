@@ -12,6 +12,11 @@
 
     dconf.enable = true;
     dconf.settings = {
+      "org/gnome/Console" = {
+        use-system-font = false;
+        custom-font = "CaskaydiaMono Nerd Font 10";
+      };
+
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
         cursor-theme = "Bibata-Modern-Classic";

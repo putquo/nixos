@@ -43,7 +43,7 @@ in {
     ];
 
     fonts.packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "CascadiaCode" "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ "CascadiaMono" ]; })
     ];
 
     home-manager.useGlobalPkgs = true;
