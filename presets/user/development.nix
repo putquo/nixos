@@ -63,6 +63,10 @@ in {
         gst = "git status";
       };
 
+      gh.enable = true;
+
+      gh-dash.enable = true;
+
       git.enable = true;
       git.extraConfig = {
         commit.gpgsign = true;
