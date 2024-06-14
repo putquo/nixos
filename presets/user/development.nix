@@ -6,6 +6,8 @@ in {
   };
 
   config = mkIf config.presets.user.development.enable {
+    home.packages = with pkgs; [ shell_gpt ];
+
     programs = {
       bat.enable = true;
       bat.extraPackages = with pkgs.bat-extras; [
@@ -89,16 +91,6 @@ in {
         nix_shell = {
           format = "via [$symbol $name]($style) ";
           symbol = "󱄅";
-        };
-
-        nodejs = {
-          format = "using [$symbol ($version)]($style) ";
-          symbol = "";
-        };
-
-        php = {
-          format = "using [$symbol ($version)]($style) ";
-          symbol = "";
         };
 
         username = {
