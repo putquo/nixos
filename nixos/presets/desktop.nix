@@ -2,7 +2,6 @@
   inherit config;
   whenEnabled = {
     environment.systemPackages = with pkgs; [
-      bazecor
       curl
       vim
       wget
@@ -38,7 +37,6 @@
     security.pam.u2f.cue = true;
 
     services.fstrim.enable = true;
-    services.udev.packages = [ pkgs.bazecor ];
 
     sound.enable = true;
     time.timeZone = "Europe/Amsterdam";
