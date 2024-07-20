@@ -1,6 +1,7 @@
-{ config, lib, osConfig, pkgs, ... }: with lib; let 
+{ config, lib, osConfig, pkgs, ... }: with lib; let
   wsl = osConfig.wsl.enable;
-in {
+in
+{
   options = {
     presets.user.development.enable = mkEnableOption "the development user preset";
   };
@@ -78,7 +79,30 @@ in {
         init.defaultBranch = "main";
         pull.rebase = true;
       };
-      git.userName = "Preston van Tonder"; 
+      git.userName = "Preston van Tonder";
+
+      helix.enable = true;
+      helix.settings.editor = {
+        line-number = "relative";
+        true-color = true;
+        undercurl = true;
+
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+
+        lsp = {
+          display-inlay-hints = true;
+          display-messages = true;
+        };
+      };
+      helix.settings.keys = {
+        normal = { X = "extend_line_above"; };
+        select = { X = "extend_line_above"; };
+      };
+      helix.settings.theme = "tokyonight_storm";
 
       ssh.enable = true;
       ssh.extraConfig = "IdentityAgent ~/.1password/agent.sock";
@@ -106,6 +130,6 @@ in {
       zoxide.enableNushellIntegration = false;
       zoxide.enableZshIntegration = false;
       zoxide.options = [ "--cmd" "cd" ];
-    }; 
+    };
   };
 }

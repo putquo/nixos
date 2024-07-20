@@ -4,6 +4,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    helix.url = "github:helix-editor/helix";
+    helix.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -14,11 +17,7 @@
   };
 
   outputs = {self, ...} @ inputs: let
-    overlays = [
-      inputs.nur.overlay
-    ];
-
-    mkSystem = import ./lib/mksystem.nix {inherit inputs overlays;};
+    mkSystem = import ./lib/mksystem.nix { inherit inputs; };
 
     supportedSystems = ["x86_64-linux"];
     forEachSupportedSystem = f:
@@ -42,7 +41,7 @@
       default = pkgs.mkShell {
         packages = with pkgs; [
           deadnix
-          nixfmt
+          nixpkgs-fmt
           statix
         ];
       };
