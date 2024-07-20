@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ...}: with lib; {
+{ config, lib, pkgs, ... }: with lib; {
   options = {
     presets.system.security.enable = mkEnableOption "the security system preset";
   };
@@ -7,7 +7,7 @@
     security.pam.u2f = {
       enable = true;
       control = "sufficient";
-      cue = true;
+      settings.cue = true;
     };
   };
 }

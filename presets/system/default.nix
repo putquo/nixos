@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }: with lib; let
   wsl = config.wsl.enable;
-in {
+in
+{
   imports = [
     ./automation.nix
     ./gaming.nix
@@ -21,6 +22,8 @@ in {
   };
 
   config = mkIf config.presets.system.default.enable {
+    environment.sessionVariables.MOZ_ENABLE_WAYLAND = 0;
+
     environment.systemPackages = with pkgs; [
       bind
       curl
