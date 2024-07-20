@@ -42,7 +42,7 @@
   services.pipewire.pulse.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
 
-  sound.enable = true;
+  # sound.enable = true;
 
   time.timeZone = "Europe/Amsterdam";
 

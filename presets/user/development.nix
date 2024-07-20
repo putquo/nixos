@@ -7,7 +7,7 @@ in
   };
 
   config = mkIf config.presets.user.development.enable {
-    home.packages = with pkgs; [ shell_gpt ];
+    home.packages = with pkgs; [ shell-gpt ];
 
     programs = {
       bat.enable = true;
