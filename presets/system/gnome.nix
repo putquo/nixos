@@ -6,15 +6,15 @@
   config = mkIf config.presets.system.gnome.enable {
     environment.gnome.excludePackages = with pkgs; [
       gedit
-      gnome.cheese
-      gnome.epiphany
-      gnome.geary
+      cheese
+      epiphany
+      geary
       gnome.gnome-contacts
       gnome-tour
     ];
 
     environment.systemPackages = with pkgs; [
-      gnome.gnome-tweaks
+      gnome-tweaks
     ];
 
     programs.dconf.enable = true;
