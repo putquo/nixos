@@ -83,6 +83,7 @@ in
 
       helix.enable = true;
       helix.settings.editor = {
+        color-modes = true;
         line-number = "relative";
         true-color = true;
         undercurl = true;
