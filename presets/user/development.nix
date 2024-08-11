@@ -82,6 +82,7 @@ in
       git.userName = "Preston van Tonder";
 
       helix.enable = true;
+      helix.defaultEditor = true;
       helix.settings.editor = {
         color-modes = true;
         line-number = "relative";
