@@ -14,8 +14,6 @@
 
         programs = {
           _1password-gui.polkitPolicyOwners = [ user ];
-
-          fish.enable = true;
         };
 
         users.users.${user} = {
