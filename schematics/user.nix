@@ -10,23 +10,6 @@
           imports = [
             ../presets/user
           ];
-
-          programs = {
-            neovim.enable = true;
-            neovim.defaultEditor = true;
-          };
-
-          xdg.configFile = {
-            "fish/functions".source = ./fish/functions;
-            "fish/functions".recursive = true;
-
-            "nvim".source = ./nvim;
-            "nvim".recursive = true;
-
-            "wezterm/wezterm.lua".source = ./wezterm/wezterm.lua;
-            "wezterm/colors".source = ./wezterm/colors;
-            "wezterm/colors".recursive = true;
-          };
         };
 
         programs = {
