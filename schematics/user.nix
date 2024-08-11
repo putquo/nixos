@@ -22,7 +22,7 @@
           extraGroups = [ "docker" "networkmanager" "wheel" ];
           isNormalUser = true;
           description = "Preston van Tonder";
-          shell = pkgs.fish;
+          shell = pkgs.nushell;
         };
 
         wsl.defaultUser = user;

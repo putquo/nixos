@@ -106,11 +106,13 @@ in
       };
       helix.settings.theme = "tokyonight_storm";
 
+      nushell.enable = true;
+
       ssh.enable = true;
       ssh.extraConfig = "IdentityAgent ~/.1password/agent.sock";
 
       starship.enable = true;
-      starship.enableNushellIntegration = false;
+      starship.enableFishIntegration = false;
       starship.enableIonIntegration = false;
       starship.enableZshIntegration = false;
       starship.settings = {
@@ -129,7 +131,7 @@ in
       vim.enable = true;
 
       zoxide.enable = true;
-      zoxide.enableNushellIntegration = false;
+      zoxide.enableFishIntegration = false;
       zoxide.enableZshIntegration = false;
       zoxide.options = [ "--cmd" "cd" ];
     };
