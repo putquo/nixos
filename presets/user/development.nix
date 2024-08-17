@@ -19,6 +19,39 @@ in
     ];
 
     programs = {
+      alacritty.enable = true;
+      alacritty.settings = {
+        window.padding.x = 10;
+
+        colors = {
+          primary.background = "#222436";
+          primary.foreground = "#c8d3f5";
+
+          normal.black = "#1bd12b";
+          normal.red = "#ff757f";
+          normal.green = "#c3e88d";
+          normal.yellow = "#ffc777";
+          normal.blue = "#82aaff";
+          normal.magenta = "#c099ff";
+          normal.cyan = "#86e1fc";
+          normal.white = "#828bb8";
+
+          bright.black = "#444a73";
+          bright.red = "#ff757f";
+          bright.green = "#c3e88d";
+          bright.yellow = "#ffc777";
+          bright.blue = "#82aaff";
+          bright.magenta = "#c099ff";
+          bright.cyan = "#86e1fc";
+          bright.white = "#c8d3f5";
+
+          indexed_colors = [
+            { index = 16; color = "#ff966c"; }
+            { index = 17; color = "#c53b53"; }
+          ];
+        };
+      };
+
       bat.enable = true;
       bat.extraPackages = with pkgs.bat-extras; [
         batdiff
@@ -118,7 +151,7 @@ in
         normal = { X = "extend_line_above"; };
         select = { X = "extend_line_above"; };
       };
-      helix.settings.theme = "tokyonight_storm";
+      helix.settings.theme = "tokyonight_moon";
 
       nushell.enable = true;
       nushell.environmentVariables = config.home.sessionVariables;
