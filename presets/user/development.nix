@@ -7,7 +7,16 @@ in
   };
 
   config = mkIf config.presets.user.development.enable {
-    home.packages = with pkgs; [ shell-gpt ];
+    home.packages = with pkgs; [
+      bash-language-server
+      dockerfile-language-server-nodejs
+      docker-compose-language-service
+      marksman
+      nodePackages.vscode-json-languageserver
+      shell-gpt
+      taplo
+      yaml-language-server
+    ];
 
     programs = {
       bat.enable = true;
