@@ -121,6 +121,7 @@ in
       helix.settings.theme = "tokyonight_storm";
 
       nushell.enable = true;
+      nushell.environmentVariables = config.home.sessionVariables;
       nushell.extraConfig = ''
         let carapace_completer = {|spans|
           carapace $spans.0 nushell ...$spans

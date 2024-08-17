@@ -1,6 +1,7 @@
 { config, lib, osConfig, pkgs, ... }: with lib; let
   wsl = osConfig.wsl.enable;
-in {
+in
+{
   imports = [
     ./dconf.nix
     ./development.nix
@@ -42,16 +43,16 @@ in {
     xdg.userDirs = {
       enable = true;
       createDirectories = true;
-      desktop = "$HOME/desktop";
-      documents = "$HOME/documents";
-      download = "$HOME/downloads";
-      music = "$HOME/media/music";
-      pictures = "$HOME/media/images";
-      publicShare = "$HOME/other/public";
-      videos = "$HOME/media/videos";
-      templates = "$HOME/other/templates";
-      
-      extraConfig = { XDG_DEV_DIR = "$HOME/workspace"; };
+      desktop = "${config.home.homeDirectory}/desktop";
+      documents = "${config.home.homeDirectory}/documents";
+      download = "${config.home.homeDirectory}/downloads";
+      music = "${config.home.homeDirectory}/media/music";
+      pictures = "${config.home.homeDirectory}/media/images";
+      publicShare = "${config.home.homeDirectory}/other/public";
+      videos = "${config.home.homeDirectory}/media/videos";
+      templates = "${config.home.homeDirectory}/other/templates";
+
+      extraConfig = { XDG_DEV_DIR = "${config.home.homeDirectory}/workspace"; };
     };
   };
 }
