@@ -2,9 +2,9 @@
   host = cell.host.${name};
 
   profiles = [
+    super.profile.cosmic
     super.profile.desktop
     super.profile.gaming
-    super.profile.hyprland
     super.profile.nvidia
     super.profile.wayland
   ];

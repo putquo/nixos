@@ -12,7 +12,6 @@
   home-manager.users.${name} = {
     imports = [
       super.profile.development
-      super.profile.hyprland
     ];
 
     programs.git.extraConfig.user.signingKey =

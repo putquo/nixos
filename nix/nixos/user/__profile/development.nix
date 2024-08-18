@@ -1,7 +1,6 @@
 { ... }@_haumeaArgs:
 { config, lib, pkgs, ... }@_hmModuleArgs: {
   programs.bat.enable = true;
-  programs.bat.extraPackages = with pkgs.bat-extras; [ batdiff batman ];
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;

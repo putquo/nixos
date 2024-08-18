@@ -34,9 +34,7 @@
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableAllFirmware = true;
   hardware.enableRedistributableFirmware = true;
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware.graphics.enable = true;
   hardware.pulseaudio.enable = false;
 
   networking.hostName = name;

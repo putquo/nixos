@@ -11,7 +11,6 @@
   home-manager.users.${name} = {
     imports = [
       super.profile.development
-      super.profile.hyprland
       super.profile.kde
     ];
 
