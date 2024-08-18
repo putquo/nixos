@@ -4,6 +4,7 @@ in
 {
   imports = [
     ./automation.nix
+    ./cosmic.nix
     ./gaming.nix
     ./gnome.nix
     ./i18n
@@ -22,7 +23,7 @@ in
   };
 
   config = mkIf config.presets.system.default.enable {
-    environment.sessionVariables.MOZ_ENABLE_WAYLAND = 0;
+    # environment.sessionVariables.MOZ_ENABLE_WAYLAND = 0;
 
     environment.systemPackages = with pkgs; [
       bind

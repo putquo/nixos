@@ -1,7 +1,8 @@
-{ config, lib, pkgs, schematics, ...}: with lib; let
+{ config, lib, pkgs, schematics, ... }: with lib; let
   toil = "toil";
   wsl = config.wsl.enable;
-in schematics.forUser toil {
+in
+schematics.forUser toil {
   inherit config;
   withOverrides = {
     home-manager.users.${toil} = {
@@ -12,7 +13,7 @@ in schematics.forUser toil {
       ];
 
       programs = {
-        awscli.enable = true;
+        # awscli.enable = true;
 
         git.userEmail = "prestonvantonder@studyportals.com";
         git.extraConfig.gpg.ssh.program = mkIf wsl "/mnt/c/Users/PrestonvanTonder/AppData/Local/1Password/app/8/op-ssh-sign.exe";

@@ -53,10 +53,6 @@ in
       };
 
       bat.enable = true;
-      bat.extraPackages = with pkgs.bat-extras; [
-        batdiff
-        batman
-      ];
 
       carapace.enable = true;
       carapace.enableFishIntegration = false;

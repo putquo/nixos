@@ -30,7 +30,8 @@
 
   presets.system.i18n.dutch.enable = true;
   presets.system.gaming.enable = true;
-  presets.system.gnome.enable = true;
+  presets.system.cosmic.enable = true;
+  presets.system.gnome.enable = false;
   presets.system.nvidia.enable = true;
   presets.system.security.enable = true;
 
