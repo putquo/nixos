@@ -2,6 +2,7 @@
   host = cell.host.${name};
 
   profiles = [
+    super.profile.development
     super.profile.kde
     super.profile.laptop
   ];

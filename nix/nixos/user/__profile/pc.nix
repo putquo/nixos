@@ -2,6 +2,18 @@
 { config, lib, osConfig, pkgs, ... }@_hmModuleArgs: {
   home.stateVersion = osConfig.system.stateVersion;
 
+  programs.alacritty.enable = true;
+  programs.alacritty.settings = rec {
+    font.normal.family = "MonaspiceNe Nerd Font Mono";
+    font.bold_italic.family = font.italic.family;
+    font.bold_italic.style = "Bold Regular";
+    font.italic.family = "MonaspiceRn Nerd Font Mono";
+    font.italic.style = "Regular";
+    window.decorations = "None";
+    window.dynamic_padding = true;
+    window.padding.x = 8;
+  };
+
   programs.btop.enable = true;
 
   programs.firefox.enable = true;
@@ -69,16 +81,6 @@
         __set_light_appearance
       end
     '';
-
-  programs.foot.enable = true;
-  programs.foot.settings = {
-    main = {
-      font = "MonaspiceNe Nerd Font Mono:size=11";
-      initial-window-size-pixels = "1200x700";
-      pad = "8x4";
-      term = "xterm-256color";
-    };
-  };
 
   programs.home-manager.enable = true;
 

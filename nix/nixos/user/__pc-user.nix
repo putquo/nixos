@@ -12,9 +12,11 @@
   programs._1password-gui.polkitPolicyOwners = [ username ];
 
   users.users.${username} = {
+    description = tag;
     extraGroups = [ "networkmanager" "wheel" ];
     initialPassword = "initPass";
     isNormalUser = true;
+    name = username;
     shell = pkgs.fish;
   };
 }

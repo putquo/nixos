@@ -4,6 +4,7 @@
   profiles = [
     super.profile.cosmic
     super.profile.desktop
+    super.profile.development
     super.profile.gaming
     super.profile.nvidia
     super.profile.wayland
