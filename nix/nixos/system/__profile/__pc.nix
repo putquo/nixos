@@ -3,6 +3,7 @@
   imports = [
     inputs.cosmic.nixosModules.default
     inputs.home-manager.nixosModules.home-manager
+    inputs.stylix.nixosModules.stylix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -114,6 +115,34 @@
   security.pam.u2f.settings.cue = true;
 
   services.fstrim.enable = true;
+
+  stylix.enable = true;
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
+  stylix.cursor = {
+    name = "Pop";
+    package = pkgs.pop-icon-theme;
+    size = 28;
+  };
+  stylix.fonts = {
+    serif = {
+      name = "Noto Serif";
+      package = pkgs.noto-fonts;
+    };
+
+    sansSerif = {
+      name = "Noto Sans";
+      package = pkgs.noto-fonts;
+    };
+
+    monospace = {
+      name = "MonaspiceNe Nerd Font Mono";
+      package = (pkgs.nerdfonts.override { fonts = [ "Monaspace" ]; });
+    };
+  };
+  stylix.image = pkgs.fetchurl {
+    url = "https://images.alphacoders.com/134/1347517.png";
+    sha256 = "sha256-54nV06WUz/lThyTNtYtYJffrDtSBqXVMcWDqoClKIv0=";
+  };
 
   time.timeZone = "Europe/Amsterdam";
 }

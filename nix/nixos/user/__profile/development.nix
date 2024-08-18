@@ -32,7 +32,6 @@
     }
   ];
   programs.helix.settings = {
-    theme = "rpine";
     editor = {
       color-modes = true;
       completion-trigger-len = 1;
@@ -52,6 +51,7 @@
     };
     keys.normal = { X = "extend_line_above"; };
     keys.select = { X = "extend_line_above"; };
+    theme = "kanagawa";
   };
   programs.helix.themes = { empty = { }; };
 
@@ -67,27 +67,6 @@
 
   programs.zoxide.enable = true;
   programs.zoxide.options = [ "--cmd" "cd" ];
-
-  services.darkman =
-    let
-      hxRtDir = lib.last (
-        builtins.match
-          ".*(/nix/store/.*-helix-runtime).*"
-          pkgs.helix.buildCommand
-      );
-      hxRtThemesDir = "${hxRtDir}/themes";
-      hxTheme = "${config.xdg.configHome}/helix/themes/rpine.toml";
-    in
-    {
-      darkModeScripts.helix = ''
-        /usr/bin/env -S ln -sf "${hxRtThemesDir}/rose_pine_moon.toml" "${hxTheme}"
-        /usr/bin/env -S pkill -USR1 hx
-      '';
-      lightModeScripts.helix = ''
-        /usr/bin/env -S ln -sf "${hxRtThemesDir}/rose_pine_dawn.toml" "${hxTheme}"
-        /usr/bin/env -S pkill -USR1 hx
-      '';
-    };
 
   xdg.userDirs.extraConfig.XDG_PROJECTS_DIR = "$HOME/projects";
 }

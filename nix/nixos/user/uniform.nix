@@ -65,24 +65,9 @@
         ui = {
           logoless = true;
           reactive = true;
-          skin = "rpine";
         };
       };
     };
-
-    services.darkman =
-      let
-        k9sSkinsDir = "${config.home-manager.users.uniform.xdg.configHome}/k9s/skins";
-        k9sSkin = "${k9sSkinsDir}/rpine.yaml";
-      in
-      {
-        darkModeScripts.k9s = ''
-          /usr/bin/env -S ln -sf "${k9sSkinsDir}/rose-pine-moon.yaml" "${k9sSkin}"
-        '';
-        lightModeScripts.k9s = ''
-          /usr/bin/env -S ln -sf "${k9sSkinsDir}/rose-pine-dawn.yaml" "${k9sSkin}"
-        '';
-      };
   };
 
   programs.openvpn3.enable = true;

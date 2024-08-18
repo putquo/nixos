@@ -7,6 +7,8 @@
     imports = [
       super.profile.pc
     ];
+
+    stylix.targets.helix.enable = false;
   };
 
   programs._1password-gui.polkitPolicyOwners = [ username ];
