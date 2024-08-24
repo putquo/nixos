@@ -11,20 +11,15 @@
   home-manager.users.${name} = {
     imports = [
       super.profile.development
-      super.profile.kde
     ];
 
     home.packages = with pkgs; [
       google-cloud-sdk
       jetbrains.idea-community-bin
-      k6
       kubectl
       kubelogin-oidc
-      maven
-      mongosh
       slack
       sops
-      yarn
       yaml-language-server
 
       (wrapHelm kubernetes-helm {
@@ -41,7 +36,6 @@
     programs.java.package = pkgs.jdk17;
 
     programs.k9s.enable = true;
-    programs.k9s.skins = super.misc.k9s-skins;
     programs.k9s.settings = {
       k9s = {
         shellPod = {
