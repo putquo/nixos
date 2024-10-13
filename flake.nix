@@ -2,9 +2,6 @@
   description = "Nix-based system configuration";
 
   inputs = {
-    anyrun.url = "github:Kirottu/anyrun";
-    anyrun.inputs.nixpkgs.follows = "nixpkgs";
-
     cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     cosmic.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -18,27 +15,6 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    hyprcontrib.url = "github:hyprwm/contrib";
-    hyprcontrib.inputs.nixpkgs.follows = "nixpkgs";
-
-    hypridle.url = "github:hyprwm/hypridle";
-    hypridle.inputs.hyprlang.follows = "hyprland/hyprlang";
-    hypridle.inputs.nixpkgs.follows = "nixpkgs";
-    hypridle.inputs.systems.follows = "hyprland/systems";
-
-    hyprland.url = "https://github.com/hyprwm/Hyprland";
-    hyprland.type = "git";
-    hyprland.submodules = true;
-    hyprland.inputs.nixpkgs.follows = "nixpkgs";
-
-    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
-    hyprland-plugins.inputs.hyprland.follows = "hyprland";
-
-    hyprlock.url = "github:hyprwm/hyprlock";
-    hyprlock.inputs.hyprlang.follows = "hyprland/hyprlang";
-    hyprlock.inputs.nixpkgs.follows = "nixpkgs";
-    hyprlock.inputs.systems.follows = "hyprland/systems";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
