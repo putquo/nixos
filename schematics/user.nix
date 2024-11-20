@@ -14,13 +14,14 @@
 
         programs = {
           _1password-gui.polkitPolicyOwners = [ user ];
+          fish.enable = true;
         };
 
         users.users.${user} = {
           extraGroups = [ "docker" "networkmanager" "wheel" ];
           isNormalUser = true;
           description = "Preston van Tonder";
-          shell = pkgs.nushell;
+          shell = pkgs.fish;
         };
 
         wsl.defaultUser = user;

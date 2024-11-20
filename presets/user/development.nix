@@ -21,6 +21,7 @@ in
     programs = {
       alacritty.enable = true;
       alacritty.settings = {
+        window.decorations = "None";
         window.padding.x = 10;
 
         colors = {
@@ -54,9 +55,7 @@ in
 
       bat.enable = true;
 
-      carapace.enable = true;
-      carapace.enableFishIntegration = false;
-      carapace.enableZshIntegration = false;
+      btop.enable = true;
 
       direnv.enable = true;
       direnv.config.whitelist.prefix = [ "${config.home.homeDirectory}/workspace" "${config.xdg.configHome}/nixconf" ];
@@ -149,67 +148,15 @@ in
       };
       helix.settings.theme = "tokyonight_moon";
 
-      nushell.enable = true;
-      nushell.environmentVariables = config.home.sessionVariables;
-      nushell.extraConfig = ''
-        let carapace_completer = {|spans|
-          carapace $spans.0 nushell ...$spans
-          | from json
-          | if ($in | default [] | where value =~ '^-.*ERR$' | is-empty) { $in } else { null }
-        }
-
-        let zoxide_completer = {|spans|
-          $spans | skip 1 | zoxide query -l ...$in | lines | where {|x| $x != $env.PWD}
-        }
-
-        let external_completer = {|spans|
-          let expanded_alias = scope aliases
-          | where name == $spans.0
-          | get -i 0.expansion
-
-          let spans = if $expanded_alias != null {
-            $spans
-            | skip 1
-            | prepend ($expanded_alias | split row ' ' | take 1)
-          } else {
-            $spans
-          }
-
-          match $spans.0 {
-            __zoxide_z | __zoxide_zi => $zoxide_completer
-            _                        => $carapace_completer
-          } | do $in $spans
-        }
-
-        $env.config = {
-          completions: {
-            external: {
-              enable: true
-              completer: $external_completer
-            }
-          }
-          edit_mode: vi
-          show_banner: false
-        }
-
-        $env.PROMPT_INDICATOR = ""
-        $env.PROMPT_INDICATOR_VI_INSERT = {|| [(ansi green) (char newline) "❯" (char space) (ansi reset)] | str join }
-        $env.PROMPT_INDICATOR_VI_NORMAL = {|| [(ansi green) (char newline) "❮" (char space) (ansi reset)] | str join }
-      '';
-
       ssh.enable = true;
       ssh.extraConfig = "IdentityAgent ~/.1password/agent.sock";
 
       starship.enable = true;
-      starship.enableFishIntegration = false;
       starship.enableIonIntegration = false;
+      starship.enableNushellIntegration = false;
       starship.enableZshIntegration = false;
       starship.settings = {
         add_newline = true;
-
-        character = {
-          disabled = true;
-        };
 
         nix_shell = {
           format = "via [$symbol $name]($style) ";
@@ -226,7 +173,7 @@ in
       vim.enable = true;
 
       zoxide.enable = true;
-      zoxide.enableFishIntegration = false;
+      zoxide.enableNushellIntegration = false;
       zoxide.enableZshIntegration = false;
       zoxide.options = [ "--cmd" "cd" ];
     };

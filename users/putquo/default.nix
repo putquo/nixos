@@ -1,11 +1,13 @@
-{ config, schematics, ...}: let
+{ config, schematics, ... }:
+let
   putquo = "putquo";
-in schematics.forUser putquo {
+in
+schematics.forUser putquo {
   inherit config;
   withOverrides = {
     home-manager.users.${putquo} = {
-      presets.user.dconf.enable = true;
       presets.user.development.enable = true;
+      presets.user.gaming.enable = true;
 
       programs = {
         git.userEmail = "46090392+putquo@users.noreply.github.com";

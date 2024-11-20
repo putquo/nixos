@@ -3,8 +3,8 @@
 in
 {
   imports = [
-    ./dconf.nix
     ./development.nix
+    ./gaming.nix
   ];
 
   options = {
