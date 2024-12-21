@@ -20,10 +20,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 4;
 
-  fileSystems."/".device = "/dev/disk/by-label/able";
-  fileSystems."/".fsType = "ext4";
-  fileSystems."/boot".device = "/dev/disk/by-label/BOOT";
-  fileSystems."/boot".fsType = "vfat";
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/7ec304ba-51b2-4548-a48e-730d7ae00cb5";
+      fsType = "ext4";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/06C8-44DD";
+      fsType = "vfat";
+    };
 
   hardware.bluetooth.enable = true;
   hardware.cpu.intel.updateMicrocode = true;

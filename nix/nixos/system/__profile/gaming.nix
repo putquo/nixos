@@ -1,5 +1,9 @@
 { ... }@_haumeaArgs:
-{ ... }@_nixosModuleArgs: {
+{ pkgs, ... }@_nixosModuleArgs: {
+  environment.systemPackages = with pkgs; [
+    python3
+  ];
+
   programs.gamescope.enable = true;
   programs.gamescope.capSysNice = true;
 

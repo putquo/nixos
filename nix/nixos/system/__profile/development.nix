@@ -2,6 +2,7 @@
 { pkgs, ... }@_nixosModuleArgs: {
   environment.systemPackages = with pkgs; [
     difftastic
+    docker-compose
     fd
     fzf
     just
@@ -22,4 +23,6 @@
   ];
 
   virtualisation.podman.enable = true;
+  virtualisation.podman.dockerCompat = true;
+  virtualisation.podman.defaultNetwork.settings.dns_enabled = true;
 }

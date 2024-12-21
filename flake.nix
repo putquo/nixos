@@ -18,6 +18,8 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+
     nur.url = "github:nix-community/nur";
 
     std.url = "github:divnix/std";

@@ -3,13 +3,12 @@
 
   profiles = [
     super.profile.cosmic
+    super.profile.desktop
     super.profile.development
-    super.profile.laptop
-    super.profile.wayland
-    super.profile.wazuh
+    # super.profile.wazuh
   ];
 
   users = [
-    cell.user.uniform
+    cell.user.toil
   ];
 }

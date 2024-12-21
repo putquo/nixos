@@ -10,6 +10,13 @@
 
   programs.eza.enable = true;
 
+  programs.ghostty.enable = true;
+  programs.ghostty.settings.cursor-style = "block";
+  programs.ghostty.settings.shell-integration-features = "no-cursor";
+  programs.ghostty.settings.window-decoration = false;
+  programs.ghostty.settings.window-padding-balance = true;
+  programs.ghostty.settings.window-padding-x = 8;
+
   programs.git.enable = true;
   programs.git.difftastic.enable = true;
   programs.git.extraConfig = {
@@ -19,8 +26,8 @@
     init.defaultBranch = "main";
     pull.rebase = true;
   };
-  programs.git.userEmail = lib.mkDefault "jan.justin.vtonder@gmail.com";
-  programs.git.userName = "Jan-Justin van Tonder";
+  programs.git.userEmail = lib.mkDefault "46090392+putquo@users.noreply.github.com";
+  programs.git.userName = "Preston van Tonder";
 
   programs.helix.enable = true;
   programs.helix.defaultEditor = true;
@@ -51,7 +58,7 @@
     };
     keys.normal = { X = "extend_line_above"; };
     keys.select = { X = "extend_line_above"; };
-    theme = "kanagawa";
+    theme = "dracula";
   };
   programs.helix.themes = { empty = { }; };
 
@@ -62,8 +69,6 @@
   '';
 
   programs.starship.enable = true;
-
-  programs.yazi.enable = true;
 
   programs.zoxide.enable = true;
   programs.zoxide.options = [ "--cmd" "cd" ];
