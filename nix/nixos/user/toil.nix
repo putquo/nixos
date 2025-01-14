@@ -64,10 +64,8 @@
     };
 
     xdg.configFile."Yubico/u2f_keys".text =
-      "toil:YRyD9p+nEgdTnj6DefvG2pey7mVGn931NnfmyRhhU6ObaPRPF+RYDRH0YXU1go0r4XClZpubnXUSAA2soUfiDg=="
-      + ",onnVg36QcW0RSU7ij+mIOjvVm71KrAOZ2/Y1k0kL/6sFD1ggWAa4NvWv4ZOyRc1MfXEmY6+qFNaUJRMTbab/EQ=="
-      + ",es256,+presence:UKD6uA7TxPZxHlX5CNlSkXfNcncOJ9O6XGWVcEDpftYzY0gaqaWknCc193a0j7tuzBUN3JUKQVxjURUaC3UkrQ=="
-      + ",3LkMS/SIv0WD7l/L/Og0Bj6tWxrLDbfTtR9V+0RUwADaXWNFbzvVfM5KzaWWviOT/fVcZoN+9ibXwuMGrRmzsw==,es256,+presence"
+      "toil:WMbAX+1VyShI4C+vVKKhkeFcVUz+mbQT0v4flDZHCVSO02rYQC47EoG6PreqThG9Wjgut5CFSPLT9/+E/GuIFQ=="
+      + ",M8Li+xgy7bhNqXeuNmyAZFNX70W+RhgbQ4piZTMWSrD9ANdgL+CGWDSWj7Moxgyrs+ArzceZ04i+gEKTy77oqw==,es256,+presence"
       + ":LqQyzxoluRwdLiVchvSpkW0Tw+16UY1qFx85DcYWW4FuK+AEiKMWtctTZnyGzLcaFirNK5Et4HkLPvh91UkRyw=="
       + ",P+ikZBs2dfg9zX+OE9+LpsaC1TCdul1Ny6O5bdjgwsuDjj/btgphW0fgY0MXKAh2hF4Cm0c6rw5RjzXpriKn0w==,es256,+presence";
   };

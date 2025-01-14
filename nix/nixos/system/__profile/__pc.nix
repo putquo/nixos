@@ -93,6 +93,12 @@
   security.pam.u2f.settings.cue = true;
 
   services.fstrim.enable = true;
+  services.udev.extraRules = ''
+    ACTION=="remove",\
+     ENV{SUBSYSTEM}=="usb",\
+     ENV{PRODUCT}=="1050/402/556",\
+     RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
+  '';
   services.tailscale.enable = true;
 
   stylix.enable = true;

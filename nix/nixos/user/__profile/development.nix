@@ -10,12 +10,23 @@
 
   programs.eza.enable = true;
 
-  programs.ghostty.enable = true;
-  programs.ghostty.settings.cursor-style = "block";
-  programs.ghostty.settings.shell-integration-features = "no-cursor";
-  programs.ghostty.settings.window-decoration = false;
-  programs.ghostty.settings.window-padding-balance = true;
-  programs.ghostty.settings.window-padding-x = 8;
+  programs.fish.shellAbbrs.ga = "git add";
+  programs.fish.shellAbbrs.gaa = "git add -A";
+  programs.fish.shellAbbrs.gb = "git branch";
+  programs.fish.shellAbbrs.gbm = "git branch -m";
+  programs.fish.shellAbbrs.gco = "git checkout";
+  programs.fish.shellAbbrs.gcb = "git checkout -b";
+  programs.fish.shellAbbrs.gc = "git commit";
+  programs.fish.shellAbbrs.gcm = "git commit -m";
+  programs.fish.shellAbbrs.gca = "git commit --amend";
+  programs.fish.shellAbbrs.gcf = "git commit --amend --no-edit";
+  programs.fish.shellAbbrs.gp = "git push";
+  programs.fish.shellAbbrs.gpf = "git push --force-with-lease --force-if-includes";
+  programs.fish.shellAbbrs.gpl = "git pull";
+  programs.fish.shellAbbrs.grs = "git restore";
+  programs.fish.shellAbbrs.grst = "git restore --staged";
+  programs.fish.shellAbbrs.gst = "git status";
+  programs.fish.shellAliases.g = "git";
 
   programs.git.enable = true;
   programs.git.difftastic.enable = true;
