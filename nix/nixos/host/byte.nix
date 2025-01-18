@@ -21,12 +21,14 @@
   boot.loader.systemd-boot.configurationLimit = 4;
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/7ec304ba-51b2-4548-a48e-730d7ae00cb5";
+    {
+      device = "/dev/disk/by-uuid/7ec304ba-51b2-4548-a48e-730d7ae00cb5";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/06C8-44DD";
+    {
+      device = "/dev/disk/by-uuid/06C8-44DD";
       fsType = "vfat";
     };
 

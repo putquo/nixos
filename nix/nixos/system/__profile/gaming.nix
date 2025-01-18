@@ -4,6 +4,8 @@
     python3
   ];
 
+  hardware.xpadneo.enable = true;
+
   programs.gamescope.enable = true;
   programs.gamescope.capSysNice = true;
 
