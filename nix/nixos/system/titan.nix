@@ -12,6 +12,5 @@
 
   users = [
     cell.user.putquo
-    cell.user.toil
   ];
 }
